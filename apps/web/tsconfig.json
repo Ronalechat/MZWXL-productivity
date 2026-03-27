@@ -1,0 +1,9 @@
+{
+  "extends": "@mzwxl/tsconfig/react.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "composite": true,
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo"
+  },
+  "include": ["src"]
+}

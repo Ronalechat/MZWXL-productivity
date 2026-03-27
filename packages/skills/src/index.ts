@@ -1,7 +1,8 @@
-export type { Skill, SkillSource, SkillCategory } from "./types.js";
+export type { Skill, SkillSource, SkillCategory, SkillReference } from "./types.js";
 
 export { contextOptimization } from "./definitions/context-optimization.js";
 export { frontendDesign } from "./definitions/frontend-design.js";
+export { reactExpert } from "./definitions/react-expert.js";
 export {
   updateConfig,
   keybindingsHelp,
@@ -13,6 +14,7 @@ export {
 
 import { contextOptimization } from "./definitions/context-optimization.js";
 import { frontendDesign } from "./definitions/frontend-design.js";
+import { reactExpert } from "./definitions/react-expert.js";
 import {
   updateConfig,
   keybindingsHelp,
@@ -27,6 +29,7 @@ import type { Skill } from "./types.js";
 export const ALL_SKILLS: Skill[] = [
   contextOptimization,
   frontendDesign,
+  reactExpert,
   updateConfig,
   keybindingsHelp,
   simplify,

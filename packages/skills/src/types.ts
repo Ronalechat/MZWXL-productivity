@@ -7,6 +7,17 @@ export type SkillCategory =
   | "development"
   | "configuration";
 
+export interface SkillReference {
+  /** Filename of the reference (e.g. "hooks-patterns.md") */
+  filename: string;
+  /** Human-readable title */
+  title: string;
+  /** Short description of when to load this reference */
+  loadWhen: string;
+  /** Full markdown content of the reference file */
+  content: string;
+}
+
 export interface Skill {
   /** Unique identifier, matches the slash command name */
   id: string;
@@ -22,4 +33,6 @@ export interface Skill {
   category: SkillCategory;
   /** Slash command to invoke this skill in Claude Code */
   invocation: string;
+  /** Optional reference files that extend the skill with deep-dive guidance */
+  references?: SkillReference[];
 }

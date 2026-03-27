@@ -9,6 +9,7 @@ export {
   simplify,
   loop,
   schedule,
+  dashboardAssistant,
   claudeApi,
 } from "./definitions/builtins.js";
 
@@ -21,6 +22,7 @@ import {
   simplify,
   loop,
   schedule,
+  dashboardAssistant,
   claudeApi,
 } from "./definitions/builtins.js";
 import type { Skill } from "./types.js";
@@ -35,6 +37,7 @@ export const ALL_SKILLS: Skill[] = [
   simplify,
   loop,
   schedule,
+  dashboardAssistant,
   claudeApi,
 ];
 

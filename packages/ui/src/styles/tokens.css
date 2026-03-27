@@ -1,0 +1,121 @@
+/* ============================================================
+   MZWXL — Design tokens
+   Time-of-day adaptive colour + typography system
+   ============================================================ */
+
+/* ---- Typed CSS custom properties (enables smooth colour transitions) ---- */
+@property --bg             { syntax: '<color>'; inherits: true; initial-value: #F0E5D5; }
+@property --bg-surface     { syntax: '<color>'; inherits: true; initial-value: #F7F0E6; }
+@property --bg-raised      { syntax: '<color>'; inherits: true; initial-value: #FDF8F1; }
+@property --text           { syntax: '<color>'; inherits: true; initial-value: #241810; }
+@property --text-secondary { syntax: '<color>'; inherits: true; initial-value: #7A5E48; }
+@property --text-muted     { syntax: '<color>'; inherits: true; initial-value: #806050; }
+@property --accent         { syntax: '<color>'; inherits: true; initial-value: #D4511A; }
+@property --accent-2       { syntax: '<color>'; inherits: true; initial-value: #C48A1A; }
+@property --accent-dim     { syntax: '<color>'; inherits: true; initial-value: #EAD5C0; }
+@property --border         { syntax: '<color>'; inherits: true; initial-value: #DDD0BC; }
+
+/* ---- Root defaults (morning) ---- */
+:root {
+  /* Colours */
+  --bg:             #F0E5D5;
+  --bg-surface:     #F7F0E6;
+  --bg-raised:      #FDF8F1;
+  --text:           #241810;
+  --text-secondary: #7A5E48;
+  --text-muted:     #806050;
+  --accent:         #D4511A;
+  --accent-2:       #C48A1A;
+  --accent-dim:     #EAD5C0;
+  --border:         #DDD0BC;
+
+  /* Colour transitions — 5 minutes to fully blend between periods */
+  transition:
+    --bg             300s ease,
+    --bg-surface     300s ease,
+    --bg-raised      300s ease,
+    --text           300s ease,
+    --text-secondary 300s ease,
+    --text-muted     300s ease,
+    --accent         300s ease,
+    --accent-2       300s ease,
+    --accent-dim     300s ease,
+    --border         300s ease;
+
+  /* Typography — switch instantly on period change */
+  --font-body:    'Zodiak', Georgia, serif;
+  --font-heading: 'Neue Metana Next', 'Arial Narrow', sans-serif;
+  --font-urgent:  'BL Melody', system-ui, sans-serif;
+  --font-mono:    'Tabular', 'Fira Code', 'Courier New', monospace;
+
+  /* Legacy aliases — keep existing components working */
+  --font-display:       var(--font-heading);
+  --color-ink:          var(--text);
+  --color-paper:        var(--bg);
+  --color-paper-raised: var(--bg-raised);
+  --color-accent:       var(--accent);
+  --color-accent-dim:   var(--accent-dim);
+  --color-muted:        var(--text-muted);
+  --color-border:       var(--border);
+
+  /* Static legacy tokens (not time-shifted) */
+  --color-builtin:      #3a6b8a;
+  --color-builtin-dim:  #d0e4ef;
+}
+
+/* ---- Afternoon ---- */
+:root[data-tod="afternoon"] {
+  --bg:             #ECEAE3;
+  --bg-surface:     #F2F0E8;
+  --bg-raised:      #F8F7F2;
+  --text:           #18181C;
+  --text-secondary: #5A5A60;
+  --text-muted:     #707078;
+  --accent:         #1558C0;
+  --accent-2:       #0A88B0;
+  --accent-dim:     #C8DCF8;
+  --border:         #D4D2C8;
+
+  --font-body:    'Sentient', Georgia, serif;
+  --font-heading: 'DirtyLine 36DaysOfType', Impact, sans-serif;
+  --font-urgent:  'Rockstar Display', Impact, sans-serif;
+}
+
+/* ---- Night ---- */
+:root[data-tod="night"] {
+  --bg:             #131820;
+  --bg-surface:     #1A2234;
+  --bg-raised:      #222C40;
+  --text:           #C8D6E8;
+  --text-secondary: #8496A8;
+  --text-muted:     #687888;
+  --accent:         #B84040;
+  --accent-2:       #886060;
+  --accent-dim:     #281E20;
+  --border:         #263040;
+
+  --font-body:    'Zodiak', Georgia, serif;
+  --font-heading: 'Chillax', system-ui, sans-serif;
+  --font-urgent:  'Newake', 'Arial Narrow', sans-serif;
+}
+
+/* ---- Drop cap ---- */
+.drop-cap::first-letter {
+  font-family: var(--font-heading);
+  font-size: 3.5em;
+  font-weight: 700;
+  line-height: 0.8;
+  float: left;
+  margin: 0.05em 0.12em 0 0;
+  color: var(--accent);
+}
+
+/* ---- Layout utilities ---- */
+.mz-flex-row { display: flex; align-items: center; }
+.mz-flex-col { display: flex; flex-direction: column; }
+
+/* ---- Alert pulse animation ---- */
+@keyframes mzwxl-pulse-border {
+  0%, 100% { border-left-color: var(--accent); }
+  50%       { border-left-color: var(--accent-2); }
+}

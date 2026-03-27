@@ -1,20 +1,6 @@
+@import "@mzwxl/ui/styles/fonts.css";
+@import "@mzwxl/ui/styles/tokens.css";
 @import "tailwindcss";
-
-@theme {
-  --font-display: "DM Serif Display", Georgia, serif;
-  --font-body: "DM Sans", system-ui, sans-serif;
-  --font-mono: "DM Mono", "Fira Code", monospace;
-
-  --color-ink: #0f0e0d;
-  --color-paper: #f5f2ee;
-  --color-paper-raised: #faf8f5;
-  --color-accent: #c8581a;
-  --color-accent-dim: #e8d5c4;
-  --color-muted: #8c867e;
-  --color-border: #e2ddd8;
-  --color-builtin: #3a6b8a;
-  --color-builtin-dim: #d0e4ef;
-}
 
 * {
   box-sizing: border-box;
@@ -26,8 +12,8 @@ html {
 }
 
 body {
-  background-color: var(--color-paper);
-  color: var(--color-ink);
+  background-color: var(--bg);
+  color: var(--text);
   font-family: var(--font-body);
   margin: 0;
 }

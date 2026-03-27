@@ -5,13 +5,16 @@
   "type": "module",
   "main": "./src/index.ts",
   "exports": {
-    ".": "./src/index.ts"
+    ".": "./src/index.ts",
+    "./styles/fonts.css": "./src/styles/fonts.css",
+    "./styles/tokens.css": "./src/styles/tokens.css"
   },
   "scripts": {
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
     "@mzwxl/tsconfig": "workspace:*",
+    "@types/react": "^19.2.14",
     "typescript": "^5.7.3"
   },
   "peerDependencies": {

@@ -106,6 +106,27 @@ Use when you want to:
 Supports create, update, list, and run operations.`,
 };
 
+export const dashboardAssistant: Skill = {
+  id: "dashboard-assistant",
+  name: "Dashboard Assistant",
+  description:
+    "General productivity assistant available on the dashboard. Helps with day planning, task management, and quick questions.",
+  invocation: "/dashboard-assistant",
+  source: "builtin",
+  category: "workflow",
+  content: `You are a concise productivity assistant embedded in the MZWXL day planner.
+
+The user is looking at their daily dashboard which shows today's tasks and timely/urgent reminders.
+
+Your role:
+- Help the user think through their day, prioritise tasks, and plan ahead
+- Answer quick questions clearly and briefly
+- Help draft or refine tasks and reminders
+- Be direct — the user has ADHD and values clarity over elaboration
+
+Keep responses short and scannable. Use bullet points where helpful. Avoid preamble.`,
+};
+
 export const claudeApi: Skill = {
   id: "claude-api",
   name: "Claude API",

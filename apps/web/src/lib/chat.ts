@@ -1,5 +1,23 @@
 const MCP_URL = "http://localhost:3001";
 
+export interface CalendarEvent {
+  title: string;
+  start: string;
+  end: string;
+  allDay: boolean;
+}
+
+export async function fetchTodayEvents(): Promise<CalendarEvent[]> {
+  try {
+    const res = await fetch(`${MCP_URL}/api/calendar`);
+    if (!res.ok) return [];
+    const data = await res.json() as { events: CalendarEvent[] };
+    return data.events;
+  } catch {
+    return [];
+  }
+}
+
 export interface Message {
   role: "user" | "assistant";
   content: string;

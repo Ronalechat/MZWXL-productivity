@@ -12,7 +12,8 @@
   "dependencies": {
     "@hono/node-server": "^1.14.3",
     "@mzwxl/skills": "workspace:*",
-    "hono": "^4.7.7"
+    "hono": "^4.7.7",
+    "node-ical": "^0.25.6"
   },
   "devDependencies": {
     "@mzwxl/tsconfig": "workspace:*",

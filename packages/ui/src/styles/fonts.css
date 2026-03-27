@@ -1,0 +1,112 @@
+/* ============================================================
+   MZWXL — Font loading (all self-hosted)
+   All files served from apps/web/public/fonts/
+   ============================================================ */
+
+/* ---- Zodiak (body: morning + night) — variable font ---- */
+@font-face {
+  font-family: 'Zodiak';
+  src: url('/fonts/Zodiak_Complete/Fonts/WEB/fonts/Zodiak-Variable.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Zodiak';
+  src: url('/fonts/Zodiak_Complete/Fonts/WEB/fonts/Zodiak-VariableItalic.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* ---- Sentient (body: afternoon) — variable font ---- */
+@font-face {
+  font-family: 'Sentient';
+  src: url('/fonts/Sentient_Complete/Fonts/WEB/fonts/Sentient-Variable.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Sentient';
+  src: url('/fonts/Sentient_Complete/Fonts/WEB/fonts/Sentient-VariableItalic.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* ---- Chillax (heading: night) — variable font ---- */
+@font-face {
+  font-family: 'Chillax';
+  src: url('/fonts/Chillax_Complete/Fonts/WEB/fonts/Chillax-Variable.woff2') format('woff2');
+  font-weight: 200 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ---- BL Melody (urgent: morning) ---- */
+@font-face {
+  font-family: 'BL Melody';
+  src: url('/fonts/BETA/BLMelody-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'BL Melody';
+  src: url('/fonts/BETA/BLMelody-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'BL Melody';
+  src: url('/fonts/BETA/BLMelody-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'BL Melody';
+  src: url('/fonts/BETA/BLMelody-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ---- Neue Metana Next (heading: morning) — SemiBold only ---- */
+@font-face {
+  font-family: 'Neue Metana Next';
+  src: url('/fonts/Neue-Metana-Next-Free-Personal-Use/NeueMetanaNext-SemiBold.otf') format('opentype');
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ---- DirtyLine 36DaysOfType (heading: afternoon) ---- */
+@font-face {
+  font-family: 'DirtyLine 36DaysOfType';
+  src: url('/fonts/Dirtyline36Daysoftype2022/woff/Dirtyline%2036daysoftype%202022.woff2') format('woff2'),
+       url('/fonts/Dirtyline36Daysoftype2022/woff/Dirtyline%2036daysoftype%202022.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ---- Rockstar Display (urgent: afternoon) — ExtraBold only ---- */
+@font-face {
+  font-family: 'Rockstar Display';
+  src: url('/fonts/Rockstar%20Demo/Rockstar-ExtraBold.otf') format('opentype');
+  font-weight: 400 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ---- Newake (urgent: night — demo, short labels only) ---- */
+@font-face {
+  font-family: 'Newake';
+  src: url('/fonts/newake/NewakeFont-Demo.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}

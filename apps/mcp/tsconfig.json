@@ -1,0 +1,10 @@
+{
+  "extends": "@mzwxl/tsconfig/base.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "noEmit": false,
+    "declaration": false,
+    "declarationMap": false
+  },
+  "include": ["src"]
+}

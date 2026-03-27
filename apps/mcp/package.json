@@ -1,0 +1,23 @@
+{
+  "name": "@mzwxl/mcp",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "start": "tsx src/index.ts"
+  },
+  "dependencies": {
+    "@hono/node-server": "^1.14.3",
+    "@mzwxl/skills": "workspace:*",
+    "hono": "^4.7.7"
+  },
+  "devDependencies": {
+    "@mzwxl/tsconfig": "workspace:*",
+    "@types/node": "^22.0.0",
+    "tsx": "^3.14.0",
+    "typescript": "^5.7.3"
+  }
+}

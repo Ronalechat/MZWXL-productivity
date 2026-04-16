@@ -12,16 +12,17 @@
   "dependencies": {
     "@mzwxl/skills": "workspace:*",
     "@mzwxl/ui": "workspace:*",
+    "motion": "^12.38.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-router": "^7.5.0"
   },
   "devDependencies": {
     "@mzwxl/tsconfig": "workspace:*",
-    "@vitejs/plugin-react": "^4.3.4",
     "@tailwindcss/vite": "^4.1.3",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "^4.3.4",
     "tailwindcss": "^4.1.3",
     "typescript": "^5.7.3",
     "vite": "^6.3.1"

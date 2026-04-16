@@ -1,14 +1,18 @@
 import { useState, useRef, useEffect } from "react";
+import { useNavigate } from "react-router";
 import { Text } from "@mzwxl/ui";
 import { streamChat, type Message } from "../lib/chat.js";
-
-const SKILL_ID = "dashboard-assistant";
+import { getActiveSkillIds, subscribeSkillIds } from "../lib/skillStore.js";
 const COLLAPSED_HEIGHT = 44;
 const EXPANDED_HEIGHT = 340;
 
 export function DashboardChat() {
+  const navigate = useNavigate();
   const [expanded, setExpanded] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
+  const [activeSkillIds, setLocalActiveSkillIds] = useState<Set<string>>(getActiveSkillIds);
+
+  useEffect(() => subscribeSkillIds(setLocalActiveSkillIds), []);
   const [input, setInput] = useState("");
   const [streaming, setStreaming] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -42,7 +46,7 @@ export function DashboardChat() {
     setMessages([...nextMessages, assistantMsg]);
 
     await streamChat(
-      SKILL_ID,
+      [...activeSkillIds],
       nextMessages,
       (chunk) => {
         setMessages((prev) => {
@@ -76,7 +80,7 @@ export function DashboardChat() {
     <div
       className="mz-flex-col"
       style={{
-        borderTop: "1px solid var(--border)",
+        borderTop: "var(--rule-weight) solid var(--border)",
         transition: "height 0.2s ease",
         height: expanded ? `${EXPANDED_HEIGHT}px` : `${COLLAPSED_HEIGHT}px`,
         overflow: "hidden",
@@ -98,6 +102,27 @@ export function DashboardChat() {
         <Text size="xs" attention="ambient" as="span" style={{ letterSpacing: "0.04em" }}>
           Ask Claude
         </Text>
+        <button
+          aria-label="Open full Skills page"
+          onClick={(e) => {
+            e.stopPropagation();
+            navigate("/skills", { state: { messages } });
+          }}
+          style={{
+            background: "none",
+            border: "none",
+            cursor: "pointer",
+            fontFamily: "var(--font-heading)",
+            fontSize: "0.65rem",
+            textTransform: "uppercase",
+            letterSpacing: "0.1em",
+            color: "var(--text-muted)",
+            padding: "4px 6px",
+            lineHeight: 1,
+          }}
+        >
+          Skills →
+        </button>
         <button
           aria-label={expanded ? "Minimise chat" : "Open chat"}
           onClick={(e) => {

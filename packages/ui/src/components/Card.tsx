@@ -1,9 +1,12 @@
 import type { CSSProperties, ReactNode } from "react";
 import type { Attention } from "./Text.js";
 
+type CardVariant = "card" | "ruled" | "flush";
+
 export interface CardProps {
   children: ReactNode;
   attention?: Attention;
+  variant?: CardVariant;
   className?: string;
   style?: CSSProperties;
 }
@@ -31,14 +34,20 @@ const stylesByAttention: Record<Attention, CSSProperties> = {
   },
 };
 
-export function Card({ children, attention = "default", className, style }: CardProps) {
+export function Card({ children, attention = "default", variant = "card", className, style }: CardProps) {
+  const variantStyles: CSSProperties =
+    variant === "ruled"
+      ? { borderRadius: 0, border: "none", padding: "12px 0" }
+      : variant === "flush"
+        ? { borderRadius: 0, border: "none", borderLeft: "var(--rule-weight, 3px) solid var(--accent)", padding: "14px 16px" }
+        : { borderRadius: "12px", padding: "16px 20px" };
+
   return (
     <div
-      className={className}
+      className={`${variant === "ruled" ? "mz-ruled-row" : ""} ${className ?? ""}`.trim()}
       style={{
-        borderRadius: "12px",
-        padding:      "16px 20px",
         ...stylesByAttention[attention],
+        ...variantStyles,
         ...style,
       }}
     >

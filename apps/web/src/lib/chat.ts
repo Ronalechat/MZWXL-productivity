@@ -1,23 +1,5 @@
 const MCP_URL = "http://localhost:3001";
 
-export interface CalendarEvent {
-  title: string;
-  start: string;
-  end: string;
-  allDay: boolean;
-}
-
-export async function fetchTodayEvents(): Promise<CalendarEvent[]> {
-  try {
-    const res = await fetch(`${MCP_URL}/api/calendar`);
-    if (!res.ok) return [];
-    const data = await res.json() as { events: CalendarEvent[] };
-    return data.events;
-  } catch {
-    return [];
-  }
-}
-
 export interface Message {
   role: "user" | "assistant";
   content: string;
@@ -28,7 +10,7 @@ export interface Message {
  * Calls onChunk for each streamed text chunk, onDone when complete.
  */
 export async function streamChat(
-  skillId: string,
+  skillIds: string[],
   messages: Message[],
   onChunk: (text: string) => void,
   onDone: () => void,
@@ -37,7 +19,7 @@ export async function streamChat(
   const response = await fetch(`${MCP_URL}/api/chat`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ skillId, messages }),
+    body: JSON.stringify({ skillIds, messages }),
   });
 
   if (!response.ok || !response.body) {

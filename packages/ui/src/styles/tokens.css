@@ -18,16 +18,20 @@
 /* ---- Root defaults (morning) ---- */
 :root {
   /* Colours */
-  --bg:             #F0E5D5;
-  --bg-surface:     #F7F0E6;
+  --bg:             #EDE0CC;
+  --bg-surface:     #F5EDE0;
   --bg-raised:      #FDF8F1;
   --text:           #241810;
   --text-secondary: #7A5E48;
   --text-muted:     #806050;
-  --accent:         #D4511A;
+  --accent:         #C8420E;
   --accent-2:       #C48A1A;
   --accent-dim:     #EAD5C0;
-  --border:         #DDD0BC;
+  --border:         #C8B89A;
+
+  /* Rule weights — editorial column rules */
+  --rule-weight:       3px;
+  --rule-weight-light: 1px;
 
   /* Colour transitions — 5 minutes to fully blend between periods */
   transition:
@@ -47,6 +51,19 @@
   --font-heading: 'Neue Metana Next', 'Arial Narrow', sans-serif;
   --font-urgent:  'BL Melody', system-ui, sans-serif;
   --font-mono:    'Tabular', 'Fira Code', 'Courier New', monospace;
+
+  /* Urgency tiers — reference existing tokens so they adapt with time-of-day */
+  --urgency-0: var(--text-muted);   /* calm — no deadline or far future */
+  --urgency-1: var(--text);         /* mild — within 30 days or 14+ days stale */
+  --urgency-2: var(--accent-2);     /* high — within 7 days or 30+ days stale */
+  --urgency-3: var(--accent);       /* critical — within 3 days or overdue */
+
+  /* Category colours — fixed hues, must be recognisable across all time-of-day themes */
+  --cat-work:     #4A90D9;
+  --cat-health:   #5BAD6F;
+  --cat-social:   #E8934A;
+  --cat-personal: #9B72CF;
+  --cat-admin:    #7A8A99;
 
   /* Legacy aliases — keep existing components working */
   --font-display:       var(--font-heading);
@@ -71,10 +88,10 @@
   --text:           #18181C;
   --text-secondary: #5A5A60;
   --text-muted:     #707078;
-  --accent:         #1558C0;
+  --accent:         #0F4DB8;
   --accent-2:       #0A88B0;
   --accent-dim:     #C8DCF8;
-  --border:         #D4D2C8;
+  --border:         #B8B4A8;
 
   --font-body:    'Sentient', Georgia, serif;
   --font-heading: 'DirtyLine 36DaysOfType', Impact, sans-serif;
@@ -89,10 +106,10 @@
   --text:           #C8D6E8;
   --text-secondary: #8496A8;
   --text-muted:     #687888;
-  --accent:         #B84040;
+  --accent:         #CC3333;
   --accent-2:       #886060;
   --accent-dim:     #281E20;
-  --border:         #263040;
+  --border:         #3A4A60;
 
   --font-body:    'Zodiak', Georgia, serif;
   --font-heading: 'Chillax', system-ui, sans-serif;
@@ -113,6 +130,30 @@
 /* ---- Layout utilities ---- */
 .mz-flex-row { display: flex; align-items: center; }
 .mz-flex-col { display: flex; flex-direction: column; }
+
+/* ---- Poster section flag — type as architecture ---- */
+.mz-section-flag {
+  font-family:    var(--font-heading);
+  font-weight:    900;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  line-height:    0.92;
+  color:          var(--text);
+  padding-bottom: 10px;
+  border-bottom:  var(--rule-weight) solid var(--border);
+}
+.mz-section-flag--reversed {
+  color:                  var(--bg);
+  border-bottom-color:    transparent;
+}
+
+/* ---- Editorial ruled row — replaces rounded cards for task lists ---- */
+.mz-ruled-row {
+  border-bottom:  var(--rule-weight-light) solid var(--border);
+  border-radius:  0;
+  transition:     background 0.12s, opacity 0.2s;
+}
+.mz-ruled-row:last-child { border-bottom: none; }
 
 /* ---- Alert pulse animation ---- */
 @keyframes mzwxl-pulse-border {

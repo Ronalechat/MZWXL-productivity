@@ -17,3 +17,8 @@ body {
   font-family: var(--font-body);
   margin: 0;
 }
+
+@keyframes nudge-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}

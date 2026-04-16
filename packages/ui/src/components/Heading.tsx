@@ -7,6 +7,7 @@ export interface HeadingProps {
   children: ReactNode;
   level?: Level;
   urgency?: Urgency;
+  display?: boolean;
   className?: string;
   style?: CSSProperties;
 }
@@ -24,7 +25,7 @@ const stylesByUrgency: Record<Urgency, CSSProperties> = {
 };
 
 const sizesByLevel: Record<Level, string> = {
-  1: "clamp(2rem, 4vw, 3rem)",
+  1: "clamp(2.8rem, 6vw, 4rem)",
   2: "clamp(1.5rem, 3vw, 2.25rem)",
   3: "clamp(1.25rem, 2.5vw, 1.75rem)",
   4: "clamp(1.1rem, 2vw, 1.4rem)",
@@ -36,6 +37,7 @@ export function Heading({
   children,
   level = 2,
   urgency = "informational",
+  display,
   className,
   style,
 }: HeadingProps) {
@@ -50,6 +52,7 @@ export function Heading({
         lineHeight: 1.2,
         margin: 0,
         ...stylesByUrgency[urgency],
+        ...(display ? { lineHeight: 0.85, letterSpacing: "-0.04em" } : {}),
         ...style,
       }}
     >

@@ -2,6 +2,8 @@ export type { Skill, SkillSource, SkillCategory, SkillReference } from "./types.
 
 export { contextOptimization } from "./definitions/context-optimization.js";
 export { frontendDesign } from "./definitions/frontend-design.js";
+export { interfaceDesign } from "./definitions/interface-design.js";
+export { uiUxProMax } from "./definitions/ui-ux-pro-max.js";
 export { reactExpert } from "./definitions/react-expert.js";
 export {
   updateConfig,
@@ -15,6 +17,8 @@ export {
 
 import { contextOptimization } from "./definitions/context-optimization.js";
 import { frontendDesign } from "./definitions/frontend-design.js";
+import { interfaceDesign } from "./definitions/interface-design.js";
+import { uiUxProMax } from "./definitions/ui-ux-pro-max.js";
 import { reactExpert } from "./definitions/react-expert.js";
 import {
   updateConfig,
@@ -31,6 +35,8 @@ import type { Skill } from "./types.js";
 export const ALL_SKILLS: Skill[] = [
   contextOptimization,
   frontendDesign,
+  interfaceDesign,
+  uiUxProMax,
   reactExpert,
   updateConfig,
   keybindingsHelp,

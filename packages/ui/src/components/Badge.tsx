@@ -5,6 +5,8 @@ type BadgeVariant = "neutral" | "default" | "notable" | "urgent";
 export interface BadgeProps {
   children: ReactNode;
   variant?: BadgeVariant;
+  shape?: "pill" | "rect";
+  uppercase?: boolean;
   className?: string;
   style?: CSSProperties;
 }
@@ -35,7 +37,7 @@ const stylesByVariant: Record<BadgeVariant, CSSProperties> = {
   },
 };
 
-export function Badge({ children, variant = "default", className, style }: BadgeProps) {
+export function Badge({ children, variant = "default", shape = "pill", uppercase, className, style }: BadgeProps) {
   return (
     <span
       className={className}
@@ -43,10 +45,11 @@ export function Badge({ children, variant = "default", className, style }: Badge
         display:       "inline-flex",
         alignItems:    "center",
         padding:       "2px 8px",
-        borderRadius:  "9999px",
+        borderRadius:  shape === "rect" ? "2px" : "9999px",
         fontSize:      "0.75rem",
         fontWeight:    500,
         lineHeight:    1.6,
+        ...(uppercase ? { textTransform: "uppercase", letterSpacing: "0.08em" } : {}),
         ...stylesByVariant[variant],
         ...style,
       }}
